@@ -3,6 +3,7 @@ const emailInput = document.getElementById("email")
 const errText = document.getElementById("error")
 const main = document.getElementById("main")
 const article = document.getElementById("article")
+const userEmail = document.getElementById("user-email")
 function submitFunc(event) {
   event.preventDefault();
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -14,6 +15,7 @@ function submitFunc(event) {
   }
   main.style.display = "none"
   article.style.display = "block"
+  userEmail.innerText = emailInput.value
 }
 
 function dismiss() {
