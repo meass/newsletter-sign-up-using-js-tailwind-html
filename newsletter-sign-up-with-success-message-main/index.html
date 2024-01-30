@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tomato: "hsl(4, 100%, 67%)",
+            "dark-slate-grey": "hsl(234, 29%, 20%)",
+            "charcoal-grey": "hsl(235, 18%, 26%)",
+            grey: "hsl(231, 7%, 60%)",
+            white: "hsl(0, 0%, 100%)"
+          },
+          fontFamily: {
+            roboto: ['Roboto', 'sans-serif']
+          },
+          backgroundImage: {
+            banner: "url('./assets/images/illustration-sign-up-mobile.svg')"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-roboto bg-dark-slate-grey h-screen flex justify-center items-center">
+  <main id="main" class="flex md:h-auto h-screen md:flex-row flex-col-reverse bg-white max-w-[930px] mx-auto md:rounded-2xl justify-between items-center gap-8">
+    <section class="px-8 pt-0 md:p-8">
+      <h1 class="md:text-5xl text-4xl font-bold">Stay updated!</h1>
+      <p class="py-8">Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul class="pb-4">
+        <li class="flex items-start pb-3">
+          <img src="./assets/images/icon-list.svg" alt="">
+          <p class="pl-4">Product discovery and building what matters</p>
+        </li>
+        <li class="flex items-start pb-3">
+          <img src="./assets/images/icon-list.svg" alt="">
+          <p class="pl-4">Measuring to ensure updates are a success</p>
+        </li>
+        <li class="flex items-start pb-3">
+          <img src="./assets/images/icon-list.svg" alt="">
+          <p class="pl-4">And much more!</p>
+        </li>
+      </ul>
+      <form id="form">
+        <div class="flex flex-col">
+          <div class="flex items-center justify-between">
+            <label for="email" class="py-2 font-bold">Email address</label>
+            <!-- error message -->
+            <span id="error" class="text-tomato font-semibold hidden">Valid email required</span>
+          </div>
+          <input id="email" class="cursor-pointer hover:border-black hover:border-2 border-2 p-3 rounded-xl text-black" type="text" placeholder="email@company.com">
+        </div>
+        <input type="button" onclick="submitFunc(event)" value="Subscribe to monthly newsletter" class="font-semibold cursor-pointer bg-dark-slate-grey text-white p-4 rounded-xl w-full my-6 hover:bg-gradient-to-r from-pink-600 to-tomato"/>
+      </form>
+    </section>
+    <section class="p-6 md:bg-none bg-banner bg-cover md:w-auto md:h-auto w-full h-[280px] rounded-b-xl">
+      <img class="hidden md:block" src="./assets/images/illustration-sign-up-desktop.svg" alt="banner"/>
+    </section>
+  </main>
+
+  <!-- success message -->
+  <article id="article" class="hidden md:h-auto h-screen bg-white max-w-[450px] mx-auto rounded-2xl p-12 flex flex-col">
+    <img class="pb-6 w-20 md:pt-0 pt-20" src="./assets/images/icon-success.svg" alt="icon-success">
+    <h1 class="text-4xl font-bold">Thanks for subscribing!</h1>
+    <p class="py-8">A confirmation email has been sent to ash@loremcompany.com. 
+    Please open it and click the button inside to confirm your subscription.</p>
+    <button class="mt-auto hover:bg-gradient-to-r from-pink-600 to-tomato bg-dark-slate-grey text-white w-full py-4 rounded-lg font-bold " onclick="dismiss()">Dismiss message</button>
+  </article>
+  <script src="./main.js"></script>
+</body>
+</html>
